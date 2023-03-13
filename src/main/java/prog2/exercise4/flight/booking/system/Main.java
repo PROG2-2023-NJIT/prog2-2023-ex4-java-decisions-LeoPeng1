@@ -14,7 +14,7 @@ public class Main {
         System.out.println("Please enter your full name");
         String name = sc.next();
 
-        System.out.println("Please select the date you want to departure(like 2023-03-07)");
+        System.out.println("Please select the date you want to departure(like 2023-03-07 )");
         String sdeparture = sc.next();
         LocalDate departure = LocalDate.parse(sdeparture);
 
