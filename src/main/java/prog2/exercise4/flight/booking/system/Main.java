@@ -1,48 +1,50 @@
 package prog2.exercise4.flight.booking.system;
 
-import java.sql.SQLOutput;
 import java.text.ParseException;
 import java.time.LocalDate;
-import java.util.Random;
 import java.util.Scanner;
-import java.util.UUID;
 
 public class Main {
     public static void main(String args[]) throws ParseException {
 
-        Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Please enter your full name");
-        String name = sc.next();
+        String name = scanner.next();
 
-        System.out.println("Please select the date you want to departure(like 2023-03-07 )");
-        String sdeparture = sc.next();
-        LocalDate departure = LocalDate.parse(sdeparture);
+        System.out.println("Please select the date of departure(like 2023-03-07)");
+        String departure1 = scanner.next();
+        LocalDate departure = LocalDate.parse(departure1);
 
-        System.out.println("Please select the date you want to return(like 2023-03-07)");
-        String return2 = sc.next();
+        System.out.println("Please select the date of return(like 2023-03-07)");
+        String return2 = scanner.next();
         LocalDate return1 = LocalDate.parse(return2);
 
         System.out.println("Please enter the number of children");
-        int child = sc.nextInt();
+        int child = scanner.nextInt();
+
         System.out.println("Please enter the number of adults");
-        int adults = sc.nextInt();
-        FlightBooking fb = new FlightBooking(name,departure,return1,child,adults);
-        System.out.println("Please select the class you would like to travel in (1.First, 2.Business, 3.Economy please enter the number):");
-        String select = sc.next();
-        fb.setBookingClass(select);
-        System.out.println("Please select the trip type(1. One way 2. Return, enter 1 or 2)");
-        String type = sc.next();
-        fb.setTripType(type);
-        System.out.println("Please chose one of the trip sources(1. Nanjing 2. Beijing 3. Oulu 4. Helsinki,please enter the number) ");
-        String source = sc.next();
-        fb.setTripSource(source);
-        System.out.println("Please chose one of the trip destination(1. Nanjing 2. Beijing 3. Oulu 4. Helsinki,please enter the number)");
-        String destination = sc.next();
-        fb.setTripDestination(source,destination);
-        fb.setClassification(source,destination);
-        System.out.println(fb);
+        int adults = scanner.nextInt();
+
+        FlightBooking flightbooking = new FlightBooking(name,departure,return1,child,adults);
+        System.out.println("Please choose the class of travel (Enter 1 for First, 2 for Business, 3 for Economy):");
+        String choice1 = scanner.next();
+        flightbooking.setBookingClass(choice1);
+
+        System.out.println("Please choose the trip type(Enter 1 for One way, 2 for Return)");
+        String choice2 = scanner.next();
+        flightbooking.setTripType(choice2);
+
+        System.out.println("Please choose the trip source(Enter 1 for Nanjing, 2 for Beijing, 3 for Oulu, 4 for Helsinki) ");
+        String source = scanner.next();
+        flightbooking.setTripSource(source);
+
+        System.out.println("Please choose the trip destination(Enter 1 for Nanjing, 2 for Beijing, 3 for Oulu, 4 for Helsinki)");
+        String destination = scanner.next();
+        flightbooking.setTripDestination(source,destination);
+        flightbooking.setClassification(source,destination);
+
+        System.out.println(flightbooking);
 
     }
 
 }
-
