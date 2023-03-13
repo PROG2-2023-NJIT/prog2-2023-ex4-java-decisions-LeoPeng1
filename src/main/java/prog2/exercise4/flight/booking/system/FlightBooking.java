@@ -12,6 +12,7 @@ public class FlightBooking {
     }
     enum TripType{
         ONE_WAY,RETURN
+        
 
     }
     enum TripSource{
